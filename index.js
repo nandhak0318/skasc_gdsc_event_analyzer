@@ -201,21 +201,21 @@ const yearbtn = document.getElementById('year')
 const coursebtn = document.getElementById('course')
 
 const clickHandler = (e) => {
-  if (e.explicitOriginalTarget.innerHTML == 'Department') {
+  if (e.srcElement.innerHTML == 'Department') {
     deptChart()
     yearbtn.classList.remove('selected')
     coursebtn.classList.remove('selected')
     deptbtn.classList.add('selected')
     return
   }
-  if (e.explicitOriginalTarget.innerHTML == 'Year') {
+  if (e.srcElement.innerHTML == 'Year') {
     yearChart()
      yearbtn.classList.add('selected')
      coursebtn.classList.remove('selected')
      deptbtn.classList.remove('selected')
     return
   }
-  if (e.explicitOriginalTarget.innerHTML == 'Course') {
+  if (e.srcElement.innerHTML == 'Course') {
     courseChart()
     yearbtn.classList.remove('selected')
     coursebtn.classList.add('selected')
