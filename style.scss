@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
+// default size variables
+$font-size: 14px;
+$height: 36px;
+$overall-width: 360px;
+$selection-width: 135px;
+
+// small size variables 
+$small-font: 12px;
+$small-height: 26px;
+
+// theme variables
+$primary: #5b96d5;
+$primary-transparent: rgba(91, 150, 213, 0.2);
+$secondary: #485769;
+$secondary-transparent: rgba(32, 45, 59, 0.2);
+$active-text: #ffffff;
+$inactive-text: #ced7e2;
+
+// misc variables
+$gutter: 32px;
+$demo-background: #10171F;
+$container-background: #293848;
+$red: #C23232;
+$yellow: #E0BB38;
+
+
+html { 
+	background: $demo-background;
+	font-size: $font-size;
+	font-family: 'DM Mono', monospace;
+}
+body{
+	max-height:100vh;
+	overflow:hidden;
+}
+body,*{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+
+}
+
+main{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.chartdiv{
+  min-width: 350px;
+  width: 70vw;
+  height:500px;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.selector {
+	display: flex;
+	height: $height;
+	width: $overall-width;
+	align-items: center;
+	justify-content: center;
+	
+	.selection {
+    cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		height: 100%;
+		width: 100%; // to flexbox this will keep all widths the same. flexbox is just funny like that.
+		margin-left: -1px;
+		background-clip: border-box; 
+		transform: scale3d(1, 1, 1); // weird hack to prevent pixel-y borders
+		
+		// make it pretty!
+		background: $secondary-transparent;
+		border: 1px solid $secondary;
+		color: $inactive-text;
+		transition: 0.15s ease-in-out background-color; 
+		&.selected {
+			background: $primary-transparent !important;
+			border-color: $primary;
+			color: $active-text !important;
+			z-index: 2; // this is to make sure the active border is always on top. make sure to not animate this if you are using transition effects!
+			cursor: text; // makes the "active" block look unclickable. now that's good UX!
+		}
+		
+		&:hover { 
+			color: lighten($primary,20%);
+			background: transparentize($primary-transparent,0.15);
+		}
+		
+		// add some borders!
+		&:first-child { 
+			margin-left: 0; // this is just to counter-act the margin-left: -1px trick
+			border-radius: 3px 0 0 3px;
+		}
+		&:last-child { border-radius: 0 3px 3px 0; }
+	}
+}
+
+.sci-fi {
+	.selector {
+		.selection {
+			transition: all 0.2s ease-in-out;
+			&:hover { box-shadow: 0 0 10px 0px $primary-transparent; }
+			
+			&.red { 
+				&:hover { 
+					background: transparentize($red,0.85); 
+					box-shadow: 0 0 10px 0px transparentize($red,0.8);
+					color: lighten($red, 20%);
+				}
+				&.selected {
+					background: transparentize($red,0.8) !important; 
+					border-color: $red !important; 
+				}
+			}
+			
+			
+			&.yellow { 
+				&:hover { 
+					background: transparentize($yellow,0.85); 
+					box-shadow: 0 0 10px 0px transparentize($yellow,0.8);
+					color: lighten($yellow, 20%);
+				}
+				&.selected {
+					background: transparentize($yellow,0.8) !important; 
+					border-color: $yellow !important; 
+				}
+			}
+		}
+	}
+}
+
+.none{
+  width:0;
+  height: 0;
+  overflow: hidden;
+  display: none;
+}
+
+.detail{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1,p{
+    color: white;
+  }
+  h1{
+    margin: .8em;
+  }
+  button{
+    margin-top: 1.5em;
+    height:36px;
+    width:120px;
+    background-color: rgba(91, 150, 213, 0.2) ;
+    border: 1px solid #5b96d5;
+    border-radius: none;
+    color: #ced7e2;
+    font-family: 'DM Mono', monospace;
+  }
+}
+
+form{
+  position: relative;
+  margin-top: 1.5em;
+  width: 500px;
+  height: 200px;
+  overflow:hidden;
+  border: 4px dashed #fff;
+}
+form p{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 170px;
+  color: #ffffff;
+  font-family: Arial;
+}
+form input{
+  cursor: pointer;
+  position: absolute;
+  top:0;
+  right:0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+}
+

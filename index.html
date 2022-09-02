@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>EVENT ANALYZER</title>
+</head>
+
+<body>
+  <main id="main" class="none">
+    <div class="nav">
+      <div class="form-group sci-fi">
+		<div class="selector width-per-item">
+			<div class="selection selected" id="dept">Department</div>
+			<div class="selection yellow" id="year">Year</div>
+			<div class="selection red" id="course">Course</div>
+		</div>
+	</div>
+    </div>
+    <div class="chartdiv" id="chartdiv">
+      <canvas id="chart"></canvas>
+    </div>
+  </main>
+  <section class="detail" id="detail">
+    <h1>SKASC GDSC EVENT ANALYZER</h1>
+    <p>This is a web application that analyzes the data of the events of the SKASC GDSC.</p>
+    <p style="margin-top:.8em">Created and maintained by <a style="color: rgb(226, 226, 226); text-decoration: none;" href="https://www.instagram.com/iam_nandha_kumar/">Nandha</a></p>
+    <form>
+  <input type="file" id="file">
+  <p>Drag your files here or click in this area.</p>
+</form>
+<!-- <button id="analyze">Analyze</button> -->
+  </section>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
