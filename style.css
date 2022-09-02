@@ -17,7 +17,9 @@ body, * {
 }
 
 main {
+  padding: 0 1.5em;
   height: 100vh;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,7 +111,9 @@ main {
 }
 
 .detail {
+  margin: 0 1.5em;
   height: 100vh;
+  min-height: 428px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +139,7 @@ main {
 form {
   position: relative;
   margin-top: 1.5em;
-  width: 500px;
+  min-width: 300px;
   height: 200px;
   overflow: hidden;
   border: 4px dashed #fff;
@@ -161,4 +165,24 @@ form input {
   height: 100%;
   outline: none;
   opacity: 0;
+}
+
+@media screen and (min-width: 600px) {
+  form {
+    width: 550px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .detail h1 {
+    font-size: 1.3em;
+  }
+  .detail p {
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-height: 600px) {
+  body {
+    max-height: unset;
+    overflow: scroll;
+  }
 }/*# sourceMappingURL=style.css.map */
