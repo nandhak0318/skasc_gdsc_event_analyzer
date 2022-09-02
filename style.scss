@@ -182,7 +182,8 @@ main{
 form{
   position: relative;
   margin-top: 1.5em;
-  min-width: 300px;
+	width: 90vw;
+  max-width: 550px;
   height: 200px;
   overflow:hidden;
   border: 4px dashed #fff;
@@ -209,11 +210,6 @@ form input{
 }
 
 
-@media screen and (min-width:600px) {
-	form{
-		width: 550px;
-	}
-}
 
 @media screen and (max-width:400px) {
 	.detail{
